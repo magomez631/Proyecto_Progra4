@@ -1,0 +1,31 @@
+public override void VerifyRenderingInServerForm(Control control)
+        {
+            //
+        }
+
+        void exportarExcel() 
+        
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.Charset = "";
+            string FileName = "Reporte_Marca_Empleados.xls";
+            System.IO.StringWriter strwritter = new System.IO.StringWriter();
+            HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = "Reporte_Marca_Empleados";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+            gvwDatosMarca.GridLines = GridLines.Both;
+            gvwDatosMarca.HeaderStyle.Font.Bold = true;
+            gvwDatosMarca.RenderControl(htmltextwrtter);
+            Response.Write(strwritter.ToString());
+            Response.End();
+
+
+        }
+        protected void btnExportarExcel_Click(object sender, EventArgs e)
+        {
+            exportarExcel(); 
+        }
