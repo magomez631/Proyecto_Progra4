@@ -1,0 +1,21 @@
+USE [bdWeb]
+GO
+
+/****** Object:  Table [dbo].[tbRoles]    Script Date: 10/4/2020 13:38:33 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tbRoles](
+	[idRol] [int] IDENTITY(1,1) NOT NULL,
+	[DescripcionRol] [varchar](20) NOT NULL,
+ CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+(
+	[idRol] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
